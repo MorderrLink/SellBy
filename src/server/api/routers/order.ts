@@ -17,7 +17,7 @@ export const orderRouter = createTRPCRouter({
     }),
     addOrderItem: protectedProcedure
     .input(z.object({ orderId:z.string(), productId: z.string(), quantity: z.number(), price:z.number() }))
-    .mutation( async ({input: { orderId: orderId, productId: productId, quantity: quantity, price:price }, ctx}) => {
+    .mutation( async ({input: { orderId: orderId, productId: productId, quantity: quantity }, ctx}) => {
         await ctx.db.orderItem.create({
             data: { 
                 orderId: orderId, 

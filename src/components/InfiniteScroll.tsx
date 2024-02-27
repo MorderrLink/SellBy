@@ -12,17 +12,6 @@ type customImageProps = {
     productId: string;
 }
 
-type Product = {
-    id: string;
-    name: string;
-    images: customImageProps[];
-    price: number;
-    description: string | null;
-    popularity: number;
-    isApproved: boolean;
-    categories: string[];
-    ownerId: string;
-   };
 type SettedProduct = {
     id: string;
     name: string;

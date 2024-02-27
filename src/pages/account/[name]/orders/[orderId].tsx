@@ -36,7 +36,7 @@ export default function UserOrderPage() {
   useEffect(() => {
     if (order && session) {
       if (order.customer.name !== session.data?.user.name) {
-        router.push(`account/${order?.customer.name}/orders`)
+        void router.push(`account/${order?.customer.name}/orders`)
       }
     }
   }, [order, session])

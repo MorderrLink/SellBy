@@ -13,7 +13,7 @@ const edgeStoreRouter = es.router({
     accept: ['image/jpeg', 'image/png', 'image/ico', 'image/webp', 'image/*'],
   })
   .beforeUpload(({ ctx, input, fileInfo }) => {
-
+    
     return true; // allow upload
   })
   .beforeDelete(({ ctx, fileInfo }) => {

@@ -14,9 +14,9 @@ export default function orderId() {
         }, 2000)
         setTimeout(() => {
             if (!userName) {
-                router.push('/')
+                void router.push('/')
             } else {
-                router.push(`/account/${userName}/orders`)
+                void router.push(`/account/${userName}/orders`)
             }
             
         }, 3000)

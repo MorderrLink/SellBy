@@ -18,10 +18,10 @@ export default function favourite() {
   
   useEffect(() => {
       if (session && session.status === "unauthenticated") {
-          router.push('/login')
+          void router.push('/login')
       }
       if (session && name != session.data?.user.name) {
-          router.push(`/favourite/${session.data?.user.name}`)
+          void router.push(`/favourite/${session.data?.user.name}`)
       }
 
 

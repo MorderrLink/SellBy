@@ -75,13 +75,13 @@ export default function NewProductDialog() {
     }, [inputValue])
 
     const CreateProduct = api.product.createProduct.useMutation({
-        onSuccess() {
-            utils.product.getProductsByUserId.invalidate()
+        async onSuccess() {
+            await utils.product.getProductsByUserId.invalidate()
         }
     })
     const CreateProductImage = api.product.createProductImages.useMutation({
-        onSuccess() {
-            utils.product.getProductsByUserId.invalidate()
+        async onSuccess() {
+            await utils.product.getProductsByUserId.invalidate()
         }
     })
     const CreateCharacteristic = api.product.createCharacteristic.useMutation()
@@ -99,21 +99,21 @@ export default function NewProductDialog() {
         }
     }
 
-    function updateFileProgress(key: string, progress: FileState['progress']) {
-        setFileStates((fileStates) => {
-          const newFileStates = structuredClone(fileStates);
-          const fileState = newFileStates.find(
-            (fileState) => fileState.key === key,
-          );
-          if (fileState) {
-            fileState.progress = progress;
-          }
-          return newFileStates;
-        });
-      }
+    // function updateFileProgress(key: string, progress: FileState['progress']) {
+    //     setFileStates((fileStates) => {
+    //       const newFileStates = structuredClone(fileStates);
+    //       const fileState = newFileStates.find(
+    //         (fileState) => fileState.key === key,
+    //       );
+    //       if (fileState) {
+    //         fileState.progress = progress;
+    //       }
+    //       return newFileStates;
+    //     });
+    //   }
 
     
-    if ((session.data?.user === undefined) || (session.data?.user.id === undefined)) return
+    if ((session.data?.user === undefined) ?? (session.data?.user.id === undefined)) return
 
     async function ValidateData() {
     if (session.data?.user.id === undefined) return false 

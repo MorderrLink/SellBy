@@ -8,12 +8,11 @@ import { Input } from "~/components/ui/input"
 export default function SearchInput() {
   const router = useRouter()
   const [searchQuery, setSearchQuery] = useState("")
-  const isSearch = router.pathname.includes('/search')
 
   const onSearch = (e:React.FormEvent) => {
     e.preventDefault()
     const encodedSearchQuery = encodeURI(searchQuery)
-    router.push({
+    void router.push({
       pathname: `/search`,
       query: {q: encodedSearchQuery }
     })

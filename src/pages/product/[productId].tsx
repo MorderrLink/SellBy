@@ -65,12 +65,11 @@ export default function Product() {
       productId: productData?.id ?? ""
     }).data
 
-    const [favs, setFavs] = useState<number | 0>(FavouritedCount ?? 0)
 
     const FavouriteMutation = api.product.addToFavourite.useMutation({
       onSuccess() {
-          utils.product.getProducts.invalidate()
-          utils.product.getProductById.invalidate()
+          void utils.product.getProducts.invalidate()
+          void utils.product.getProductById.invalidate()
       }
 
   })
@@ -90,9 +89,6 @@ export default function Product() {
     setFavourited(existingFavourite ?? false)
   }, [existingFavourite])
     
-  useEffect(() => {
-    setFavs(FavouritedCount ?? 0)
-  }, [FavouritedCount])
 
   async function addToFavourite() {
 

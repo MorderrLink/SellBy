@@ -49,7 +49,7 @@ export default function AdminSearchProducts() {
     useEffect(() => {
         
         if (productsData && productsData.products.length > 0 && productsData.hasMore ) {
-            setProducts(prev => [...(prev || []), ...(Array.isArray(productsData.products) ? productsData.products : [])]);
+            setProducts(prev => [...(prev ?? []), ...(Array.isArray(productsData.products) ? productsData.products : [])]);
             setDataLoading(false)
         }
     }, [productsData])

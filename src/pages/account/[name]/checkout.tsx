@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import { useSelector } from 'react-redux';
-import { RootState } from '~/redux/store';
+import type { RootState } from '~/redux/store';
 import { useDispatch } from 'react-redux';
 import { AiOutlineEye } from "react-icons/ai";
 import { AiOutlineEyeInvisible } from "react-icons/ai";
@@ -24,10 +24,10 @@ export default function checkout() {
     
   useEffect(() => {
       if (session && session.status === "unauthenticated") {
-          router.push('/login')
+          void router.push('/login')
       }
       if (session && name != session.data?.user.name) {
-          router.push(`/account/${session.data?.user.name}/checkout`)
+          void router.push(`/account/${session.data?.user.name}/checkout`)
       }
   }, [session.status])
 
@@ -105,7 +105,7 @@ export default function checkout() {
         setTimeout( () => {
             dispatch(clearCart())
         }, 2000)
-        router.push(`/success/${orderId}`)
+        void router.push(`/success/${orderId}`)
 
     }
 

@@ -1,10 +1,4 @@
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-  } from "~/components/ui/carousel"
-import Autoplay from "embla-carousel-autoplay"
-import { type CarouselApi } from "~/components/ui/carousel"
+
 import {
 Card,
 CardContent,
@@ -13,7 +7,7 @@ CardHeader,
 CardTitle,
 } from "~/components/ui/card"
 import { Button } from "./ui/button"
-import { Suspense, useEffect, useRef, useState } from "react"
+import { Suspense, useState } from "react"
 import Link from "next/link"
 
 import {

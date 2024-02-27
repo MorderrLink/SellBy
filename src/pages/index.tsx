@@ -1,9 +1,6 @@
 
 import Link from "next/link"
-
-import { api } from "~/utils/api"
 import { Button } from "~/components/ui/button";
-import React, { useEffect, useState } from "react";
 import { Tabs } from "~/components/ui/tabs";
 import { Spotlight } from "~/components/ui/Spotlight";
 import { useSession } from "next-auth/react";
@@ -141,14 +138,7 @@ export default function Home() {
 
 
   const session = useSession()
-  const [loaded, setLoaded] = useState<boolean>(false)
-  const popularProducts = api.product.getPopular.useQuery().data
 
-  useEffect(() => {
-    if (popularProducts) {
-       setLoaded(true)
-    }
-   }, [popularProducts])
 
 
   return (

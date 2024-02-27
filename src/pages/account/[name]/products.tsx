@@ -18,10 +18,10 @@ export default function products() {
 
   useEffect(() => {
       if (session && session.status === "unauthenticated") {
-          router.push('/login')
+          void router.push('/login')
       }
       if (session && name != session.data?.user.name) {
-          router.push(`/account/${session.data?.user.name}/products`)
+          void router.push(`/account/${session.data?.user.name}/products`)
       }
   }, [session.status])
   

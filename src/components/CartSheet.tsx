@@ -4,7 +4,7 @@ import { Button } from '~/components/ui/button';
 
 
 import { useSelector } from 'react-redux';
-import { RootState } from '~/redux/store';
+import type { RootState } from '~/redux/store';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 

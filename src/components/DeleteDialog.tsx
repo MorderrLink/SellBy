@@ -8,7 +8,8 @@ import {
   } from "~/components/ui/dialog"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input";
-import { FormEvent, useRef, useState } from "react";
+import  { useRef, useState } from "react";
+import type { FormEvent } from "react";
 import { api } from "~/utils/api";
 import { useEdgeStore } from "~/lib/edgestore";
 import { useRouter } from "next/router";
@@ -37,9 +38,9 @@ export default function DeleteDialog({productName, productId, images, isAdmin, i
     const [opened, setOpened] = useState<boolean>(false)
     const deleteInputRef = useRef<HTMLInputElement | null>(null)
     const DeleteMutation = api.product.deleteProduct.useMutation({
-        onSuccess() {
-            utils.product.getProductsByUserId.invalidate()
-            utils.admin.getProducts.invalidate()
+        async onSuccess() {
+            await utils.product.getProductsByUserId.invalidate()
+            await utils.admin.getProducts.invalidate()
         }
     })
 

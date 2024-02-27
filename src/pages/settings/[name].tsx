@@ -43,7 +43,7 @@ export default function Settings() {
   const userData = api.user.getUserByName.useQuery({name: name}).data 
   const DataMutation = api.user.changeUserProfile.useMutation({
     onSuccess() {
-      utils.user.getUserByName.invalidate()
+      void utils.user.getUserByName.invalidate()
     }
   })
 
@@ -54,14 +54,14 @@ export default function Settings() {
   useEffect(() => {
 
     if (session.status == "unauthenticated") {
-      router.push('/login')
+      void router.push('/login')
     }
 
     if (session.data?.user) {
       setSessionLoaded(true)
     }
     if(sessionLoaded && session.data?.user.name !== name) {
-      router.push(`/settings/${session.data?.user.name}`)
+      void router.push(`/settings/${session.data?.user.name}`)
     }
 
   }, [session, session.data, session.data?.user])

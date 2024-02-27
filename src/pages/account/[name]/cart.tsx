@@ -5,7 +5,7 @@ import { Button } from '~/components/ui/button';
 
 
 import { useSelector } from 'react-redux';
-import { RootState } from '~/redux/store';
+import type { RootState } from '~/redux/store';
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
@@ -20,10 +20,10 @@ export default function cart() {
 
   useEffect(() => {
       if (session && session.status === "unauthenticated") {
-          router.push('/login')
+          void router.push('/login')
       }
       if (session && name != session.data?.user.name) {
-          router.push(`/account/${session.data?.user.name}/cart`)
+          void router.push(`/account/${session.data?.user.name}/cart`)
       }
   }, [session.status])
 

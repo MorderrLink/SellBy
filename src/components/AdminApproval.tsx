@@ -38,9 +38,9 @@ export default function AdminApproval() {
     const [page, setPage] = useState(1)
     const productsData = api.admin.getApproval.useQuery({page: page}).data
     const approveMutation = api.admin.approveProduct.useMutation({
-        onSuccess() {
-            utils.admin.getApproval.invalidate()
-            utils.admin.getProducts.invalidate()
+        async onSuccess() {
+            await utils.admin.getApproval.invalidate()
+            await utils.admin.getProducts.invalidate()
         }
     })
 
@@ -58,7 +58,7 @@ export default function AdminApproval() {
     useEffect(() => {
         
         if (productsData && productsData.products.length > 0 && productsData.hasMore ) {
-            setProducts(prev => [...(prev || []), ...(Array.isArray(productsData.products) ? productsData.products : [])]);
+            setProducts(prev => [...(prev ?? []), ...(Array.isArray(productsData.products) ? productsData.products : [])]);
             setDataLoading(false)
         }
     }, [productsData])

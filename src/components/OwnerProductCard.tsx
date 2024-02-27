@@ -1,5 +1,3 @@
-
-  
 import {
 Card,
 CardContent,
@@ -10,7 +8,6 @@ CardTitle,
 import { Button } from "./ui/button"
 import { useState } from "react"
 import Link from "next/link"
-import { Skeleton } from "./ui/skeleton"
 import { wrap } from "popmotion"
 import { AnimatePresence, motion } from "framer-motion"
 

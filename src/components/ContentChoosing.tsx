@@ -8,7 +8,6 @@ import { FcSimCardChip } from "react-icons/fc";
 import { FaCcMastercard } from "react-icons/fa";
 import { motion, useAnimation } from 'framer-motion';
 import { TypewriterEffectSmooth } from './ui/type-writer';
-import QRCode from 'qrcode.react';
 
 
 const words = [

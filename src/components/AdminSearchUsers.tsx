@@ -18,7 +18,7 @@ export default function AdminSearchUsers() {
     useEffect(() => {
         
         if (userData && userData.users.length > 0 && userData.hasMore ) {
-            setUsers(prev => [...(prev || []), ...(Array.isArray(userData.users) ? userData.users : [])]);
+            setUsers(prev => [...(prev ?? []), ...(Array.isArray(userData.users) ? userData.users : [])]);
             setDataLoading(false)
         }
     }, [userData])

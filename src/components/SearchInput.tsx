@@ -11,10 +11,10 @@ export default function SearchInput() {
 
   const onSearch = (e:React.FormEvent) => {
     e.preventDefault()
-    const encodedSearchQuery = encodeURI(searchQuery)
+    // const encodedSearchQuery = encodeURI(searchQuery)
     void router.push({
       pathname: `/search`,
-      query: {q: encodedSearchQuery }
+      query: {q: searchQuery }
     })
   }
 

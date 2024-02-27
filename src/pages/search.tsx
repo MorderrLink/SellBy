@@ -28,7 +28,7 @@ export default function search() {
       <div className="w-full flex justify-center items-center gap-2 p-2">
         <FaSearch className="w-8 h-8"/>
         {(query != "" && !!query) 
-             ? <h1 className="text-2xl font-medium ">Results for <span className="font-mono">{query}</span></h1>
+             ? <h1 className="text-2xl font-medium ">Results for <span className="font-mono">{query.length > 20 ? query.slice(0,17)+"..." : query}</span></h1>
              : <h1 className="text-xl font-medium ">Search for products here</h1>
             }
       </div>

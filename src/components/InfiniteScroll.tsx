@@ -23,12 +23,20 @@ type Product = {
     categories: string[];
     ownerId: string;
    };
+type SettedProduct = {
+    id: string;
+    name: string;
+    images: customImageProps[];
+    price: number;
+    isApproved: boolean;
+    categories: string[];
+}
 
    export default function InfiniteScroll({favourite, userName, category}: {favourite: boolean, userName?: string, category?:string}) {
     const categoryFilter = (category == null || category?.length ==  0) ? "all" : category;
     const [page, setPage] = useState(1)
     const loader = useRef(null)
-    const [products, setProducts] = useState<Product[] | []>([])
+    const [products, setProducts] = useState<SettedProduct[] | []>([])
     const query = useSearchParams().get("q")
     const { data: productsData, isLoading } = api.product.getProducts.useQuery({
         favourite: favourite,

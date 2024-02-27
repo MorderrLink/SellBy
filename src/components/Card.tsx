@@ -44,10 +44,9 @@ type customImageProps = {
 type ProductCardProps = {
     id: string;
     name: string;
-    description: string | null;
+
     price: number;
     images: customImageProps[];
-    popularity: number;
     isApproved: boolean;
     categories: string[];
 }

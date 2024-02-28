@@ -188,8 +188,8 @@ export default function Settings() {
         
         <div className="w-full p-4 flex flex-row  items-center gap-1 lg:justify-start justify-center flex-wrap">
           <h1 className="text-lg font-medium text-text-main-color">Choose a color for your interface -</h1>
-          <Button onClick={() => setTheme("light")} className="lg:w-auto w-1/2 bg-transparent hover:bg-nav-bg-color"> <span className="bg-purple-300 w-5 h-5 rounded-full"></span> </Button>
-          <Button onClick={() => setTheme("dark")} className="bg-transparent hover:bg-nav-bg-color"> <span className="bg-neutral-500 w-5 h-5 rounded-full"></span> </Button>
+        <Button onClick={() => setTheme("dark")} className="bg-transparent hover:bg-nav-bg-color text-text-main-color flex gap-2">Recommended <span className="bg-neutral-500 w-5 h-5 rounded-full"></span> </Button>
+          <Button onClick={() => setTheme("light")} className="lg:w-auto bg-transparent hover:bg-nav-bg-color"> <span className="bg-purple-300 w-5 h-5 rounded-full"></span> </Button>
           <Button onClick={() => setTheme("yellow")} className="bg-transparent hover:bg-nav-bg-color"> <span className="bg-yellow-300 w-5 h-5 rounded-full"></span> </Button>
           <Button onClick={() => setTheme("orange")} className="bg-transparent hover:bg-nav-bg-color"> <span className="bg-red-300 w-5 h-5 rounded-full"></span> </Button>
           <Button onClick={() => setTheme("blue")} className="bg-transparent hover:bg-nav-bg-color"> <span className="bg-blue-300 w-5 h-5 rounded-full"></span> </Button>

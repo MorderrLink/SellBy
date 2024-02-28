@@ -37,7 +37,7 @@ const categories = [
 
 export default function Home(props: any) {
   
-  console.log(props.ip)
+  // console.log(props.ip)
 
 
   const IpMutation = api.unknowns.createNewVisitor.useMutation()

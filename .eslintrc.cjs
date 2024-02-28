@@ -17,6 +17,7 @@ const config = {
     "@typescript-eslint/consistent-type-definitions": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@next/next/no-img-element": "off",
+    "@typescript-eslint/no-unsafe-call": "off",
     "@typescript-eslint/no-unsafe-assignment" : "off",
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/prefer-for-of": "off",

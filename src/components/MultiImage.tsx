@@ -5,7 +5,7 @@ import * as React from 'react';
 import { useDropzone, type DropzoneOptions } from 'react-dropzone';
 import { twMerge } from 'tailwind-merge';
 const variants = {
-  base: 'relative rounded-md aspect-square flex justify-center items-center flex-col cursor-pointer min-h-32 h-32 w-32 min-w-32 border border-dashed border-[#f9f9fc] dark:border-gray-300 transition-colors duration-200 ease-in-out',
+  base: 'relative rounded-md aspect-square flex justify-center items-center flex-col cursor-pointer min-h-32 h-32  w-32 min-w-32 border border-dashed border-[#f9f9fc] dark:border-gray-300 transition-colors duration-200 ease-in-out',
   image:
     'border-0 p-0 w-full h-full relative shadow-md bg-slate-200 dark:bg-slate-900 rounded-md',
   active: 'border-2',

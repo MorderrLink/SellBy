@@ -8,6 +8,10 @@ import {
   } from "~/components/ui/dialog"
   import { ScrollArea, ScrollBar } from "~/components/ui/scroll-area";
 
+
+
+
+
 import { type FileState, MultiImageDropzone } from "./MultiImage"
 import { useEdgeStore } from "~/lib/edgestore";
 import React, { useCallback, useLayoutEffect, useRef, useState } from "react";
@@ -230,21 +234,27 @@ export default function NewProductDialog() {
 
 
     return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={setOpen} >
         <DialogTrigger>Place new product</DialogTrigger>
-        <DialogContent className="bg-secondary-bg-color h-max overflow-y-auto">
+        <DialogContent className="bg-secondary-bg-color h-max overflow-y-scroll">
           <DialogHeader>
             <DialogTitle className="font-semibold text-xl">
                 New product
             </DialogTitle>
+            </DialogHeader>
+
+
             
-            <form onSubmit={handleSubmit} className="w-full flex flex-col gap-3 items-start">
+            
+
+            <form onSubmit={handleSubmit} className="w-full flex flex-col gap-3 items-start overflow-y-auto">
                 <div>
                     <h1 className="font-medium ">Add some pictures of your product</h1>
                     <p className="font-medium text-sm text-[#f9f9fc]">You can add maximum of 6 files</p>
                 </div>
-                <div className="w-full max-h-96">
+                <div className="w-full max-h-32 lg:max-h-96">
                     <MultiImageDropzone
+                    className="max-h-32 h-20"
                     value={fileStates}
                     dropzoneOptions={{
                         maxFiles: 6,
@@ -259,7 +269,7 @@ export default function NewProductDialog() {
 
                 <div className="w-full">
                     <h1 className="font-medium ">Give your product a name</h1>
-                    <Input ref={nameInputRef} placeholder="Type here..." className="w-full text-[#504da8] text-lg font-medium" />
+                    <Input ref={nameInputRef} placeholder="Type here..." className=" text-[#504da8] text-sm lg:text-lg font-medium" />
                     <p className="font-medium text-sm text-[#f9f9fc]">Max length is 30 symbols</p>
                 </div>
 
@@ -268,17 +278,17 @@ export default function NewProductDialog() {
                     name="newTweet" 
                     ref={inputRef}
                     onChange={(e) => setInputValue(e.target.value)}
-                    className="flex-grow resize-none overflow-hidden p-2 w-full max-h-40 overflow-y-auto text-base border-zinc-100 shadow-xl border-2 outline-none rounded-lg" 
+                    className="flex-grow resize-none overflow-hidden p-2 w-full max-h-40 overflow-y-auto text-sm lg:text-base border-zinc-100 shadow-xl border-2 outline-none rounded-lg" 
                     placeholder="Give a short description of the product"/>
                 </div>
                 
-                <div className="w-full flex flex-wrap flex-col gap-2">
+                <div className="w-full flex flex-wrap flex-col gap-[2px] lg:gap-2">
                 <h1 className="font-medium">Choose from 1 to 3 categories that your product belongs to</h1>
                 <ToggleGroup type="multiple" className="flex flex-wrap">
                     {CATEGORIES.map((category, index) => {
                         return (
-                            <ToggleGroupItem key={index}  value={category} onClick={() => { addToggleItem(category) }}>
-                            <h1>{category}</h1>
+                            <ToggleGroupItem className="p-[5px] lg:p-2" key={index}  value={category} onClick={() => { addToggleItem(category) }}>
+                            <h1 className="text-sm lg:text-base">{category}</h1>
                         </ToggleGroupItem>)
                     })}
                     
@@ -287,9 +297,9 @@ export default function NewProductDialog() {
                 </div>
 
                 <div className="w-full">
-                    <h1 className="font-medium">What will be the price?</h1>
-                    <p className="font-medium text-sm text-[#f9f9fc]">State the prise in USD</p>
-                    <Input ref={priceInputRef} type="number"/>
+                    <h1 className="lg:font-medium">What will be the price?</h1>
+                    <p className="font-thin lg:font-medium text-sm text-[#f9f9fc]">State the prise in USD</p>
+                    <Input ref={priceInputRef} className="h-[25px] lg:h-auto" type="number"/>
                 </div>
                 <div className="w-full gap-2">
                     <h1 className="font-medium">Add as many charactesitsics as you can</h1>
@@ -319,8 +329,10 @@ export default function NewProductDialog() {
                 </div>}
             <Button type="submit">Submit</Button>
             </form>
-            
-          </DialogHeader>
+
+
+
+
         </DialogContent>
       </Dialog>
                 

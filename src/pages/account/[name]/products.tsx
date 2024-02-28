@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "~/components/OwnerProductCard";
 import { api } from "~/utils/api";
 import { useSession } from "next-auth/react";
-import NewProductDialog from "~/components/NewProductDialog";
 import CardsSkeleton from "~/components/CardsSkeleton";
+import NewProductModal from "~/components/NewProductModal";
+
 
 
 
@@ -54,7 +55,10 @@ export default function products() {
           You reached maximum of products! You are selling 10 products by now!
         </div> 
         : <div>
-          <NewProductDialog/>
+
+          <NewProductModal/>
+
+
         </div>}
         
       </div>

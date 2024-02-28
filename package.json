@@ -16,6 +16,7 @@
     "@edgestore/react": "^0.1.6",
     "@edgestore/server": "^0.1.6",
     "@next-auth/prisma-adapter": "^1.0.7",
+    "@nextui-org/modal": "^2.0.28",
     "@prisma/client": "^5.9.1",
     "@radix-ui/react-collapsible": "^1.0.3",
     "@radix-ui/react-dialog": "^1.0.5",

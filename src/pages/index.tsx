@@ -12,6 +12,8 @@ import { FaShoppingBag, FaFutbol, FaTshirt, FaRunning, FaHeadphones, FaHome, FaC
 import { Meteors } from "~/components/ui/meteors";
 import { BentoGrid, BentoGridItem } from "~/components/ui/BentoGrid";
 import ContentChoosing from "~/components/ContentChoosing";
+import { api } from "~/utils/api";
+import { useEffect } from "react";
 
 
 
@@ -34,8 +36,15 @@ const categories = [
 
 
 export default function Home(props: any) {
-
+  
   console.log(props.ip)
+
+
+  const IpMutation = api.unknowns.createNewVisitor.useMutation()
+
+  useEffect(() => {
+    IpMutation.mutate({ ip: props.ip })
+  }, [props.ip])
 
   const tabs = [
     {

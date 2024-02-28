@@ -146,3 +146,9 @@ model VerificationToken {
 
     @@unique([identifier, token])
 }
+
+
+model Visitor {
+    id String @id @default(uuid())
+    ip String @unique()
+}

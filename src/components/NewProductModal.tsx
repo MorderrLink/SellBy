@@ -206,6 +206,7 @@ export default function NewProductModal() {
       <Button onClick={onOpen}>Place new product</Button>
       
       <Modal
+        
         size="lg"
         backdrop='blur'
         slot=''

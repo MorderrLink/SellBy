@@ -33,9 +33,9 @@ const categories = [
 
 
 
-export default function Home() {
+export default function Home(props: any) {
 
-
+  console.log(props.ip)
 
   const tabs = [
     {
@@ -252,3 +252,23 @@ export default function Home() {
     </div>
   )
 }
+
+export async function getServerSideProps(context: any) {
+  let ip;
+ 
+  const { req } = context;
+ 
+  if (req.headers['x-forwarded-for']) {
+     ip = req.headers['x-forwarded-for'].split(',')[0];
+  } else if (req.headers['x-real-ip']) {
+     ip = req.connection.remoteAddress;
+  } else {
+     ip = req.connection.remoteAddress;
+  }
+ 
+  return {
+     props: {
+       ip,
+     },
+  };
+ }

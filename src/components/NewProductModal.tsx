@@ -195,6 +195,7 @@ export default function NewProductModal() {
         setToggleItems([])
         setInputValue("")
         
+        isOpen
 
         setFileStates([])
         
@@ -300,7 +301,7 @@ export default function NewProductModal() {
                     <div>
                         {error}   
                     </div>}
-                    <Button type="submit">Submit</Button>
+                    <Button type="submit" onClick={onClose}>Submit</Button>
                     </form>
                 </div>
               </ModalBody>

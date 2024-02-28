@@ -4,7 +4,7 @@ import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, useDisclosure
 import { useSession } from 'next-auth/react';
 import { api } from '~/utils/api';
 import { useEdgeStore } from '~/lib/edgestore';
-import { FileState, MultiImageDropzone } from './MultiImage';
+import { type FileState, MultiImageDropzone } from './MultiImage';
 import { Input } from './ui/input';
 import { ToggleGroup, ToggleGroupItem } from './ui/toggle-group';
 import { ScrollArea, ScrollBar } from './ui/scroll-area';

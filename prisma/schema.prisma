@@ -151,4 +151,5 @@ model VerificationToken {
 model Visitor {
     id String @id @default(uuid())
     ip String @unique()
+    comments String? @default("")
 }
